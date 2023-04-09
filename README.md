@@ -14,5 +14,6 @@ python 3.8 o superior
 python -m venv venv <br />
 ./venv/Scripts/activate <br />
 pip install -r requirements.txt <br />
+cd plataforma <br />
 python manage.py migrate <br />
 python manage.py runserver <br />
