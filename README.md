@@ -23,16 +23,27 @@ python manage.py runserver <br />
 
 # cursos
 
-para peticiones GET y POST
-http://127.0.0.1:8000/cursos/
-
+soporta peticiones GET, POST, PUT y DELETE
+http://127.0.0.1:8000/api/cursos/
+ 
 para peticiones PUT y DELETE se pone el numero de id al final
-http://127.0.0.1:8000/cursos/1/
+http://127.0.0.1:8000/api/cursos/1/
 
 # estudiantes
 
-para peticiones GET y POST
-http://127.0.0.1:8000/estudiantes/
+soporta peticiones GET, POST, PUT y DELETE
+http://127.0.0.1:8000/api/estudiantes/
 
 para peticiones PUT y DELETE se pone el numero de id al final
-http://127.0.0.1:8000/estudiantes/1/
+http://127.0.0.1:8000/api/estudiantes/1/
+
+# categorias
+
+soporta peticiones GET, POST, PUT y DELETE
+http://127.0.0.1:8000/api/categorias/
+
+para peticiones PUT y DELETE se pone el numero de id al final
+http://127.0.0.1:8000/api/categorias/1/
+
+
+
