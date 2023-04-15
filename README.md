@@ -5,13 +5,13 @@ proyecto-6
 
 # api base
 
-# requerimientos
+# requerimientos:
 
 python 3.8 o superior
 
 # instalacion
 
-# windows
+# windows:
 
 python -m venv venv <br />
 ./venv/Scripts/activate <br />
@@ -20,7 +20,7 @@ cd plataforma <br />
 python manage.py migrate <br />
 python manage.py runserver <br />
 
-# linux
+# linux:
 
 virtualenv -p python3 . <br />
 source ./bin/activate <br />
@@ -33,7 +33,7 @@ python3 manage.py runserver <br />
 
 # endpoints
 
-# cursos
+# cursos:
 
 soporta peticiones GET, POST, PUT y DELETE
 http://127.0.0.1:8000/api/cursos/
@@ -41,7 +41,7 @@ http://127.0.0.1:8000/api/cursos/
 para peticiones PUT y DELETE se pone el numero de id al final
 http://127.0.0.1:8000/api/cursos/1/
 
-# estudiantes
+# estudiantes:
 
 soporta peticiones GET, POST, PUT y DELETE
 http://127.0.0.1:8000/api/estudiantes/
@@ -49,7 +49,7 @@ http://127.0.0.1:8000/api/estudiantes/
 para peticiones PUT y DELETE se pone el numero de id al final
 http://127.0.0.1:8000/api/estudiantes/1/
 
-# categorias
+# categorias:
 
 soporta peticiones GET, POST, PUT y DELETE
 http://127.0.0.1:8000/api/categorias/
