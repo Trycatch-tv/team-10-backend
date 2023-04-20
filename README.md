@@ -56,7 +56,7 @@ para peticiones PUT y DELETE se pone el numero de id al final
 http://127.0.0.1:8000/api/categorias/1/
 
 
-# autenticacion
+# autenticacion:
 
 registro de usuario
 http://127.0.0.1:8000/api/auth/signup/
