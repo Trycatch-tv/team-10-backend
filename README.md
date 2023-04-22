@@ -17,6 +17,7 @@ python -m venv venv <br />
 ./venv/Scripts/activate <br />
 pip install -r requirements.txt <br />
 cd plataforma <br />
+python manage.py makemigrations <br />
 python manage.py migrate <br />
 python manage.py runserver <br />
 
@@ -26,6 +27,7 @@ virtualenv -p python3 . <br />
 source ./bin/activate <br />
 pip install -r requirements.txt <br />
 cd plataforma <br />
+python3 manage.py makemigrations <br />
 python3 manage.py migrate <br />
 python3 manage.py runserver <br />
 
