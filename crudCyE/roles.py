@@ -1,0 +1,11 @@
+from rolepermissions.roles import AbstractUserRole
+
+class Administrador(AbstractUserRole):
+    available_permissions = {
+        'create_medical_record': True,
+    }
+
+class Estudiante(AbstractUserRole):
+    available_permissions = {
+        'edit_patient_file': True,
+    }
