@@ -10,9 +10,13 @@ class CategoriaSerializer(serializers.ModelSerializer):
 
 
 class CursoSerializer(serializers.ModelSerializer):
-    #estudiante = serializers.PrimaryKeyRelatedField(queryset=Estudiante.objects.all(),many=True)
     class Meta:
         model = Curso
-        fields = ('title','description','tutor','categoria','fechaInicio','fechaFinalizacion') 
+        fields = ('nombre','descripcion','profesor','categoria','fechaInicio','fechaFinalizacion') 
         read_only_fields = ('created_at',)                    
 
+class RegistrarseCursoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RegistrarseCurso
+        fields = ('nombre','estudiante')
+        read_only_fields = ('created_at',)                    

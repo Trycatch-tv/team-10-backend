@@ -1,12 +1,16 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password 
-from .models import RoleGroup
+from .models import *
 
 
 
+class RoleGroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RoleGroup
+        fields = ('id', 'name', 'description')
 
-
+        
 
 class UserSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(
@@ -27,7 +31,6 @@ class UserSerializer(serializers.ModelSerializer):
         return make_password(value)
     
 
-
 class UserLogin(serializers.ModelSerializer):
     email = serializers.EmailField(
         required=True)
@@ -40,15 +43,15 @@ class UserLogin(serializers.ModelSerializer):
         model = get_user_model()
         fields = ('email',  'password')
 
-class RoleGroupSerializer(serializers.ModelSerializer):
+
+
+
+
+
+
+
+
+class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = RoleGroup
-        fields = ('id', 'name', 'description')
-
-        
-
-
-
-
-
-
+        model = get_user_model()
+        fields = ('email', 'username', 'rol')

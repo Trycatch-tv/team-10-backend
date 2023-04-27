@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import LoginView, LogoutView, SignupView, RoleGroupListCreateView, RoleGroupRetrieveUpdateDestroyView
+from .views import * 
 
 
 
@@ -21,5 +21,14 @@ urlpatterns = [
 
      path('groups/', RoleGroupListCreateView.as_view(), name='group-list'),
      path('groups/<int:pk>/', RoleGroupRetrieveUpdateDestroyView.as_view(), name='group-detail'),
+
+     path('users/profesores/',UsuariosAdministradoresAPIView.as_view(), name='profesor'),
+     path('users/estudiantes/',UsuariosEstudiantesAPIView.as_view(), name='estudiantes'),
+
+     path('user_info/', UserInfoView.as_view(), name='user_info'),
+     #path('registrarse_curso/', RegistrarseCursoView.as_view(), name='registrarse_curso')
+
+
+
     
 ]

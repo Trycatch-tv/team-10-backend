@@ -1,6 +1,6 @@
 from rolepermissions.roles import AbstractUserRole
 
-class Administrador(AbstractUserRole):
+class Profesor(AbstractUserRole):
     available_permissions = {
         'create_medical_record': True,
     }
