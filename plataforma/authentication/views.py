@@ -80,18 +80,18 @@ class SignupView(generics.CreateAPIView):
    
 
     
-@permission_classes([IsAdmin])
+#@permission_classes([IsAdmin])
 class RoleGroupListCreateView(generics.ListCreateAPIView):
     queryset = RoleGroup.objects.all()
     serializer_class = RoleGroupSerializer
 
-@permission_classes([IsAdmin])
+#@permission_classes([IsAdmin])
 class RoleGroupRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = RoleGroup.objects.all()
     serializer_class = RoleGroupSerializer
    
 
-@permission_classes([IsAdmin])
+#@permission_classes([IsAdmin])
 class UsuariosAdministradoresAPIView(generics.ListAPIView):
     serializer_class = UserSerializer
     #permission_classes = [IsAuthenticated]
