@@ -1,5 +1,9 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from rest_framework.views import APIView
+from authentication.serializers import UserSerializer
+import json
+
 
 
 
@@ -27,20 +31,16 @@ class Categoria(models.Model):
 
 
     
-    
-
-
-    
 class Curso(models.Model):
-    title=models.CharField(max_length=200, unique=True)
-    description=models.TextField(max_length=500)
-    tutor=models.CharField(max_length=200)
+    nombre=models.CharField(max_length=200, unique=True)
+    descripcion=models.TextField(max_length=500)
+    profesor=models.CharField(max_length=200)
     categoria=models.ManyToManyField(Categoria)
     fechaInicio=models.DateField(auto_created=False)
     fechaFinalizacion=models.DateField(auto_created=False)
     created_at=models.TimeField(auto_now_add=True)
     updated=models.DateTimeField(auto_now_add=True)
-    #imagen=models.ImageField(upload_to='Curso', null=True, blank=True)
+    
 
     # Verificar si ya existe un curso con el mismo nombre
     def clean(self):
@@ -56,5 +56,19 @@ class Curso(models.Model):
         verbose_name_plural='cursos'
 
     def __str__(self):
-        return self.title
+        return self.nombre
     
+
+class RegistrarseCurso(models.Model):
+    nombre=models.CharField(max_length=200, unique=True)
+    estudiante=models.TextField(null=True)
+    created_at=models.TimeField(auto_now_add=True)
+    updated=models.DateTimeField(auto_now_add=True)
+
+    
+    class Meta:
+        verbose_name='RegistrarseCurso'
+        verbose_name_plural='RegistrarseCursos'
+
+    def __str__(self):
+        return self.nombre
