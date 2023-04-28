@@ -123,9 +123,9 @@ class UserInfoView(APIView):
             # Si el usuario está autenticado, devolvemos su información
             user_data = UserSerializer(request.user).data
             return Response(user_data)
-        #else:
+        else:
             # Si el usuario no está autenticado, devolvemos un error
-            #return Response({"error": "Usuario no autenticado"}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response({"error": "Usuario no autenticado"}, status=status.HTTP_401_UNAUTHORIZED)
         
 
 
