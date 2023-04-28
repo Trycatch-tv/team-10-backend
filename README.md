@@ -50,14 +50,15 @@ http://127.0.0.1:8000/api/cursos/1/
 listar todos los cursos disponibles
 http://127.0.0.1:8000/api/cursos/
 
-crear categorias
-http://127.0.0.1:8000/api/categorias/
+# roles:
 
 crear y listar roles
 http://127.0.0.1:8000/api/groups/
 
 para editar o eliminar un rol se agrega el id al final
 http://127.0.0.1:8000/api/groups/1/
+
+# listar:
 
 listar profesores
 http://127.0.0.1:8000/api/users/profesores/
