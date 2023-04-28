@@ -10,13 +10,14 @@ class CategoriaSerializer(serializers.ModelSerializer):
 
 
 class CursoSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(required=False)
     class Meta:
         model = Curso
-        fields = ('nombre','descripcion','profesor','categoria','fechaInicio','fechaFinalizacion') 
+        fields = ('id','nombre','descripcion','profesor','categoria','fechaInicio','fechaFinalizacion') 
         read_only_fields = ('created_at',)                    
 
-class RegistrarseCursoSerializer(serializers.ModelSerializer):
+"""class RegistrarseCursoSerializer(serializers.ModelSerializer):
     class Meta:
         model = RegistrarseCurso
         fields = ('nombre','estudiante')
-        read_only_fields = ('created_at',)                    
+        read_only_fields = ('created_at',)          """          

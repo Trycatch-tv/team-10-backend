@@ -59,7 +59,7 @@ class Curso(models.Model):
         return self.nombre
     
 
-class RegistrarseCurso(models.Model):
+"""class RegistrarseCurso(models.Model):
     nombre=models.CharField(max_length=200, unique=True)
     estudiante=models.TextField(null=True)
     created_at=models.TimeField(auto_now_add=True)
@@ -71,4 +71,4 @@ class RegistrarseCurso(models.Model):
         verbose_name_plural='RegistrarseCursos'
 
     def __str__(self):
-        return self.nombre
+        return self.nombre """

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
-from rest_framework import status, generics
+from rest_framework import status, generics, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import UserSerializer, UserLogin
@@ -16,7 +16,11 @@ from .models import CustomUser
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Group
 from cursos.models import *
-from cursos.api import RegistrarseCursoViewSet
+#from cursos.api import RegistrarseCursoViewSet
+from cursos.models import Curso
+from cursos.serializers import CursoSerializer
+from .serializers import CustomUserSerializer
+
 
 
 
@@ -123,34 +127,27 @@ class UserInfoView(APIView):
             # Si el usuario no está autenticado, devolvemos un error
             #return Response({"error": "Usuario no autenticado"}, status=status.HTTP_401_UNAUTHORIZED)
         
-"""class RegistrarseCursoView(APIView):
-    def post(self, request):
-        if request.user.is_authenticated:
-            # Se crea una nueva instancia de RegistrarseCurso
-            registrarse_curso = RegistrarseCursoViewSet()
-
-            # Se establece el nombre del estudiante como el nombre del usuario autenticado
-            registrarse_curso.estudiante = UserInfoView
-            estudiante = registrarse_curso.estudiante
-            print(estudiante)
 
 
-            # Se obtiene la instancia del curso correspondiente al ID
-            curso = registrarse_curso.nombre('nombre')
+class RegistroEstudianteView(generics.CreateAPIView):
+    serializer_class = CursoSerializer
 
-            # Se añade el curso a la lista de cursos relacionados con el registro del estudiante
-            registrarse_curso.nombre.add(curso)
-            registrarse_curso.estudiante.add(estudiante)
+    permission_classes = [permissions.IsAuthenticated]
 
+    def post(self, request, *args, **kwargs):
+        # Obtiene el usuario autenticado en la sesión
+        usuario = UserSerializer(request.user).data
 
-            # Se guarda la instancia de RegistrarseCurso en la base de datos
-            registrarse_curso.save()
+        # Obtiene el id del curso de los parámetros de la solicitud POST
+        curso_id = request.data.get('nombre')
 
-            return Response({"mensaje": "El estudiante se ha registrado correctamente en el curso."}, status=status.HTTP_201_CREATED)
-        else:
-            return Response({"error": "Usuario no autenticado"}, status=status.HTTP_401_UNAUTHORIZED)"""
+        # Obtiene el curso correspondiente al id
+        curso = Curso.objects.get(pk=curso_id)
 
+        # Agrega al usuario al curso
+        curso.usuarios.add(CustomUser)
 
+        return Response({'message': f'El usuario {usuario.username} ha sido registrado en el curso {curso.nombre}.'})
 
 
 receiver(reset_password_token_created)

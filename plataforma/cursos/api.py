@@ -29,9 +29,9 @@ class CursoList(viewsets.ReadOnlyModelViewSet):
 
 
 
-class RegistrarseCursoViewSet(viewsets.ModelViewSet, APIView):
+"""class RegistrarseCursoViewSet(viewsets.ModelViewSet, APIView):
     queryset=RegistrarseCurso.objects.all()
     permission_classes = [permissions.AllowAny] 
-    serializer_class = RegistrarseCursoSerializer  
+    serializer_class = RegistrarseCursoSerializer  """
     
 
