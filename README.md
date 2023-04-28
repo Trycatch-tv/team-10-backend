@@ -45,7 +45,7 @@ http://127.0.0.1:8000/api/curso/
  
 eliminar o editar curso
 para peticiones PUT y DELETE se pone el numero de id al final
-http://127.0.0.1:8000/api/cursos/1/
+http://127.0.0.1:8000/api/curso/1/
 
 listar todos los cursos disponibles
 http://127.0.0.1:8000/api/cursos/
