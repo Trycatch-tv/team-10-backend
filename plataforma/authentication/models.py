@@ -15,7 +15,7 @@ class CustomUser(AbstractUser):
 
     
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['id', 'username', 'cedula', 'phone', 'password', 'rol']
+    REQUIRED_FIELDS = ['username', 'cedula', 'phone', 'password', 'rol']
 
 
 
