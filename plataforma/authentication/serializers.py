@@ -29,7 +29,7 @@ class UserSerializer(serializers.ModelSerializer):
     def validate_password(self, value):
         return make_password(value)
     
-    def create(self, validated_data):
+    """def create(self, validated_data):
         user = CustomUser.objects.create_user(
             username=validated_data['username'],
             cedula=validated_data['cedula'],
@@ -38,7 +38,7 @@ class UserSerializer(serializers.ModelSerializer):
             password=validated_data['password'],
             rol=validated_data['rol']
         )
-        return user
+        return user"""
 
 class UserLogin(serializers.ModelSerializer):
     email = serializers.EmailField(
