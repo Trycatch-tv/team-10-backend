@@ -12,8 +12,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 #import environ
-from decouple import config
+#from decouple import config
 import os
+from dotenv import load_dotenv
+
+load_dotenv('/etc/secrets/.env')
 
 # variables de entorno 
 #env = environ.Env()
@@ -171,6 +174,6 @@ EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+EMAIL_HOST_PASSWORD = VARIABLE_DE_ENTORNO = os.getenv('VARIABLE_DE_ENTORNO')
 
 
