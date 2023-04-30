@@ -2,7 +2,7 @@
 # exit on error
 set -o errexit
 
-#poetry install
+poetry install
 pip install --upgrade pip
 pip install python-dotenv
 #pip install -r requirements.txt
@@ -10,4 +10,4 @@ pip install python-dotenv
 #python3 manage.py collectstatic --no-input
 python manage.py makemigrations
 python manage.py migrate
-python manage.py runserver
+#python manage.py runserver
