@@ -4,9 +4,9 @@ set -o errexit
 
 #poetry install
 
-pip install -r requirements.txt
+#pip install -r requirements.txt
 
 #python3 manage.py collectstatic --no-input
-python3 manage.py makemigrations
-python3 manage.py migrate
-python3 manage.py runserver
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
