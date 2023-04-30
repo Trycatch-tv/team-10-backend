@@ -3,7 +3,7 @@
 set -o errexit
 
 #poetry install
-
+pip install --upgrade pip
 pip install python-dotenv
 #pip install -r requirements.txt
 
