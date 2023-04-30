@@ -4,6 +4,7 @@ set -o errexit
 
 #poetry install
 
+pip install python-dotenv
 #pip install -r requirements.txt
 
 #python3 manage.py collectstatic --no-input
