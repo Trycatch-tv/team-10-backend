@@ -11,12 +11,16 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import environ
+#import environ
+#from decouple import config
 import os
+from dotenv import load_dotenv
+
+load_dotenv('/etc/secrets/.env')
 
 # variables de entorno 
-env = environ.Env()
-env.read_env(env.str('ENV_PATH', '.env'))
+#env = environ.Env()
+#env.read_env(env.str('ENV_PATH', '.env'))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,9 +34,12 @@ SECRET_KEY = "SECRET_KEY"
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
+
+# Custom user model
+AUTH_USER_MODEL = "authentication.CustomUser"
 
 
 # Application definition
@@ -44,10 +51,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #Django custom apps
     'cursos',
-    'rest_framework'
-    #'rest_framework.authtoken',
-    #'rest_auth',
+    'authentication',
+
+    #Django external apps
+    'rest_framework',
+    'django_rest_passwordreset',
+    'corsheaders',
+    'rolepermissions',
+    'rest_framework_swagger',
+    
 ]
 
 MIDDLEWARE = [
@@ -58,9 +73,21 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'crudCyE.urls'
+
+ROLEPERMISSIONS_MODULE = 'crudCyE.roles'
+
+# Configuración de CORS
+#CORS_ORIGIN_WHITELIST = ["http://localhost:5000", "http://127.0.0.1:3000"]
+#CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_HEADERS = ['content-type']
+
+
 
 TEMPLATES = [
     {
@@ -136,7 +163,20 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = VARIABLE_DE_ENTORNO = os.getenv('VARIABLE_DE_ENTORNO')
+
+

@@ -16,14 +16,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-#from cursos import api
+from rest_framework import routers
+from rest_framework_swagger.views import get_swagger_view
+
+#schema_view = get_swagger_view(title='API documentation')
+
+# Api router
+router = routers.DefaultRouter()
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+
+    # Api routes
+    #path('docs/', schema_view),
     path('',include('cursos.urls')),
-    #path('api-auth/', include('rest_framework.urls')),
-    #path('rest-auth/', include('rest_auth.urls')),
-    #path('rest-auth/registration/', api.CustomRegisterView.as_view(),name='custom_register'),
+    path('api/', include('authentication.urls')),
+    path('api/', include(router.urls)),
+    
+   
 ]
     
 
