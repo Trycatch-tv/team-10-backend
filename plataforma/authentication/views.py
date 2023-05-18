@@ -52,6 +52,8 @@ class LoginView(APIView):
                 print("El usuario es profesor") 
             elif UserSerializer(user).data['rol'] == 'estudiante':
                 print("El usuario es estudiante") 
+            elif UserSerializer(user).data['rol'] == 'administrador':
+                print("El usuario es administrador") 
             elif UserSerializer(user).data['rol'] != '':
                 print("El usuario es : ", UserSerializer(user).data['rol'] ) 
             return Response(
