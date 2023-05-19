@@ -37,6 +37,8 @@ python3 manage.py runserver <br />
 
 # endpoints
 
+para usar algunos endpoints es necesario loguearse como usuario administrador 
+
 # cursos:
 
 crear curso
