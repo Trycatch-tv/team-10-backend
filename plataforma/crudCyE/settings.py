@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     #Django custom apps
     'cursos',
     'authentication',
+    'users',
 
     #Django external apps
     'rest_framework',

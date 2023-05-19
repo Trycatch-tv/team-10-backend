@@ -5,8 +5,6 @@ from authentication.serializers import UserSerializer
 import json
 
 
-
-
 # Create your models here
 class Categoria(models.Model):
     nombre=models.CharField(max_length=50, unique=True)
