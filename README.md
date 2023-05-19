@@ -62,6 +62,9 @@ http://127.0.0.1:8000/api/groups/1/
 
 # usuarios:
 
+listar administradores
+http://127.0.0.1:8000/api/users/administradores/
+
 listar profesores
 http://127.0.0.1:8000/api/users/profesores/
 
