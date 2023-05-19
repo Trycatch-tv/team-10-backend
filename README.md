@@ -72,7 +72,7 @@ http://127.0.0.1:8000/api/users/estudiantes/
 modificar datos de estudiantes segun su id
 http://127.0.0.1:8000/api/users/estudiantes/1/
 
-modificar datos de el usuario que se encuentra logeado
+modificar datos de el usuario que se encuentra logueado
 http://127.0.0.1:8000/api/users/edit/
 
 obtener informacion de el usuario que esta logueado
