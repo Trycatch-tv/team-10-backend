@@ -58,13 +58,22 @@ http://127.0.0.1:8000/api/groups/
 para editar o eliminar un rol se agrega el id al final
 http://127.0.0.1:8000/api/groups/1/
 
-# listar:
+# usuarios:
 
 listar profesores
 http://127.0.0.1:8000/api/users/profesores/
 
+modificar datos de profesores segun su id
+http://127.0.0.1:8000/api/users/profesores/1/
+
 listar estudiantes
 http://127.0.0.1:8000/api/users/estudiantes/
+
+modificar datos de estudiantes segun su id
+http://127.0.0.1:8000/api/users/estudiantes/1/
+
+modificar datos de el usuario que se encuentra logeado
+http://127.0.0.1:8000/api/users/edit/
 
 obtener informacion de el usuario que esta logueado
 http://127.0.0.1:8000/api/user_info/
